@@ -47,7 +47,7 @@ def to_epoch(time_to_convert):
 
 # Build the regular expressions to find the time stamp,
 # detect a hit or a miss, the target, and the damage value
-fight_name = argv[1].split('/', 1)[-1].lower()
+fight_name = re.sub(r'\.', '_', argv[1].split('/', 1)[-1].lower())
 one_time_stamp = r"\[([A-z]{3}\s[A-z]{3}\s[0-31]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}\s[0-9]{4})\]"
 two_three_action_success = one_time_stamp + r"\s([A-z]+)\s(slashes|pierces|kicks|punches|hit|strikes)"
 # TODO(elebertus) put misses into the player dict
